@@ -262,6 +262,14 @@ function traverseMoves(moveCount: number) {
 
     updateClassificationMessage(positions[currentMoveIndex - 1], currentPosition);
     updateEngineSuggestions(currentPosition.topLines ?? []);
+    
+    // Update coach with current and previous position
+    if (currentMoveIndex > 0 && window.chessCoach && typeof window.chessCoach.updateCoach === 'function') {
+        window.chessCoach.updateCoach(currentPosition, positions[currentMoveIndex - 1]);
+    } else {
+        // Hide coach if we're at the starting position
+        $("#coach-container").hide();
+    }
     if (currentPosition.opening) {
         $("#opening-name").html(currentPosition.opening);
     }

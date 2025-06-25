@@ -34,8 +34,8 @@
         <link
             rel="stylesheet"
             href="/static/pages/report/styles/reviewpanel.css"
-        />
-        <link rel="stylesheet" href="/static/pages/report/styles/report.css" />
+        />        <link rel="stylesheet" href="/static/pages/report/styles/report.css" />
+        <link rel="stylesheet" href="/static/pages/report/styles/coach.css" />
 
         <link
             rel="shortcut icon"
@@ -321,9 +321,23 @@
                                     height="25"
                                 />
                                 <b id="classification-message"></b>
+                            </div>                            <b id="top-alternative-message"></b>
+                            
+                            <!-- Chess Coach Component -->
+                            <div id="coach-container">
+                                <div id="coach-avatar-container">                                <div id="coach-avatar">
+                                        <!-- Avatar will be replaced by coach-avatar-placeholder.js -->
+                                    </div>
+                                    <div class="coach-speech-bubble">
+                                        <div class="coach-title">Coach's Analysis</div>
+                                        <div id="coach-summary"></div>
+                                        <div id="coach-detailed"></div>
+                                    </div>
+                                </div>
+                                <button id="coach-toggle" title="Toggle detailed explanation">
+                                    <i class="fa-solid fa-chevron-down"></i>
+                                </button>
                             </div>
-
-                            <b id="top-alternative-message"></b>
 
                             <div id="engine-suggestions">
                                 <h2 id="engine-suggestions-title" class="white">
@@ -434,12 +448,14 @@
         <script src="/static/pages/report/scripts/sprites.js"></script>
         <script src="/static/pages/report/scripts/evalbar.js"></script>
         <script src="/static/pages/report/scripts/evalgraph.js"></script>
+        <script src="/static/pages/report/scripts/coach.js"></script>
+        <script src="/static/pages/report/scripts/coach-ui.js"></script>
         <script src="/static/pages/report/scripts/board.js"></script>
-        <script src="/static/pages/report/scripts/report.js"></script>
-
-        <script src="/static/pages/report/scripts/loadgame.js"></script>        <script src="/static/pages/report/scripts/engine.js"></script>
+        <script src="/static/pages/report/scripts/report.js"></script>        <script src="/static/pages/report/scripts/loadgame.js"></script>        
+        <script src="/static/pages/report/scripts/engine.js"></script>
         <script src="/static/pages/report/scripts/analysis.js"></script>
         <script src="/static/pages/report/scripts/performance-rating.js"></script>
+        <script src="/static/media/coach-avatar-placeholder.js"></script>
 
         <script src="/static/pages/report/scripts/styles.js"></script>
     </body>

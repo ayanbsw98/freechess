@@ -46,4 +46,25 @@ if (fs.existsSync(analysisJsPath)) {
     console.log(`File not found: ${analysisJsPath}`);
 }
 
+// Copy coach-related files
+const htmlSource = path.join(__dirname, 'src', 'public', 'pages', 'report', 'index.html');
+const htmlTarget = path.join(__dirname, 'dist', 'public', 'pages', 'report', 'index.html');
+ensureDirectoryExistence(htmlTarget);
+copyFile(htmlSource, htmlTarget);
+
+const coachCssSource = path.join(__dirname, 'src', 'public', 'pages', 'report', 'styles', 'coach.css');
+const coachCssTarget = path.join(__dirname, 'dist', 'public', 'pages', 'report', 'styles', 'coach.css');
+ensureDirectoryExistence(coachCssTarget);
+copyFile(coachCssSource, coachCssTarget);
+
+const coachUiJsSource = path.join(__dirname, 'src', 'public', 'pages', 'report', 'scripts', 'coach-ui.js');
+const coachUiJsTarget = path.join(__dirname, 'dist', 'public', 'pages', 'report', 'scripts', 'coach-ui.js');
+ensureDirectoryExistence(coachUiJsTarget);
+copyFile(coachUiJsSource, coachUiJsTarget);
+
+const avatarPlaceholderSource = path.join(__dirname, 'src', 'public', 'media', 'coach-avatar-placeholder.js');
+const avatarPlaceholderTarget = path.join(__dirname, 'dist', 'public', 'media', 'coach-avatar-placeholder.js');
+ensureDirectoryExistence(avatarPlaceholderTarget);
+copyFile(avatarPlaceholderSource, avatarPlaceholderTarget);
+
 console.log('Done copying and modifying frontend files.');
