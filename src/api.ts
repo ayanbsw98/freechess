@@ -86,11 +86,10 @@ router.post("/report", async (req, res) => {
         } catch (err) {
             return res.status(500).json({ message: "Failed to verify CAPTCHA." });
         }
-    }
-
-    // Generate report
+    }    // Generate report
     try {
         var results = await analyse(positions);
+        console.log("Analysis results:", JSON.stringify(results, null, 2));
     } catch (err) {
         console.log(err);
         return res.status(500).json({ message: "Failed to generate report." });

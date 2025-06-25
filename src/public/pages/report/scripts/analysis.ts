@@ -225,14 +225,30 @@ function loadReportCards() {
 
     $("#status-message").css("display", "none");
     $("#status-message").css("padding", "0px");
-    traverseMoves(-Infinity);
-
-    // Reveal report cards and update accuracies
+    traverseMoves(-Infinity);    // Reveal report cards and update accuracies
     $("#report-cards").css("display", "flex");
 
     if (!!reportResults) {
         $("#white-accuracy").html(`${reportResults.accuracies.white.toFixed(1)}%`);
         $("#black-accuracy").html(`${reportResults.accuracies.black.toFixed(1)}%`);
+          // Update performance ratings
+        const calculatePerformanceRating = (accuracy: number): number => {
+            if (accuracy >= 95) return Math.round(2400 + (accuracy - 95) * 40);
+            if (accuracy >= 90) return Math.round(2200 + (accuracy - 90) * 40);
+            if (accuracy >= 85) return Math.round(2000 + (accuracy - 85) * 40);
+            if (accuracy >= 80) return Math.round(1800 + (accuracy - 80) * 40);
+            if (accuracy >= 75) return Math.round(1600 + (accuracy - 75) * 40);
+            if (accuracy >= 70) return Math.round(1400 + (accuracy - 70) * 40);
+            if (accuracy >= 60) return Math.round(1200 + (accuracy - 60) * 20);
+            if (accuracy >= 50) return Math.round(1000 + (accuracy - 50) * 20);
+            return Math.max(800, Math.round(800 + accuracy * 4));
+        };
+        
+        const whitePerformanceRating = calculatePerformanceRating(reportResults.accuracies.white);
+        const blackPerformanceRating = calculatePerformanceRating(reportResults.accuracies.black);
+        
+        $("#white-performance-rating").html(`${whitePerformanceRating}`);
+        $("#black-performance-rating").html(`${blackPerformanceRating}`);
 
         // Initialize classification container for next analysis
         $("#classification-count-container").empty();
@@ -330,7 +346,14 @@ async function report() {
         }
 
         // Set report results to results given by server
-        reportResults = report.results!;
+        reportResults = report.results;
+        window.reportResults = reportResults;
+        console.log('[DEBUG] window.reportResults set:', window.reportResults);
+        if (!document.getElementById('analysis-debug')) {
+            $("body").append('<div id="analysis-debug" style="position:fixed;bottom:20px;left:0;background:#c22;color:#fff;z-index:9999;padding:4px;font-size:12px;">window.reportResults set</div>');
+        } else {
+            $("#analysis-debug").text('window.reportResults set: ' + (window.reportResults ? 'OK' : 'MISSING'));
+        }
         $("#status-message").css("display", "none");
         loadReportCards();
     } catch {

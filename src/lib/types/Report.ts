@@ -6,6 +6,10 @@ export default interface Report {
         white: number,
         black: number
     },
+    performanceRatings: {
+        white: number,
+        black: number
+    },
     classifications: {
         white: ClassificationCount,
         black: ClassificationCount,

@@ -6,10 +6,11 @@
     "node-fetch": "^2.7.0",
     "path": "^0.12.7",
     "pgn-parser": "^2.2.0"
-  },
-  "scripts": {
-    "start": "tsc && nodemon dist/index.js",
-    "build": "tsc",
+  },  "scripts": {
+    "start": "tsc && node copy-frontend-files.js && nodemon dist/index.js",
+    "build": "tsc && node copy-frontend-files.js",
+    "postbuild": "node copy-frontend-files.js",
+    "copy-frontend": "node copy-frontend-files.js",
     "test": "tsc && node dist/test/reports.js"
   },
   "devDependencies": {
