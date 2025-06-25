@@ -98,12 +98,17 @@ interface ReportResponse {
     results?: Report 
 }
 
-// Add coach and reportResults to window global
+// Add coach, showBestLine and reportResults to window global
 interface Window {
     loadReportCards: () => void;
     reportResults?: Report;
     chessCoach?: {
         updateCoach: (position: Position, lastPosition: Position) => void;
         explainMove: (position: Position, lastPosition: Position) => any;
+    };
+    showBestLine?: {
+        init: () => void;
+        updateButton: (position: Position, lastPosition: Position) => void;
+        showModal: () => void;
     };
 }

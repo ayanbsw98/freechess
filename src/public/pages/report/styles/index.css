@@ -196,3 +196,135 @@ body {
 .footer a {
     color: white;
 }
+
+/* Best Line Modal Styles */
+.modal {
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-content {
+    background-color: rgba(49, 51, 56, 255);
+    border: 2px solid #47acff;
+    border-radius: 8px;
+    padding: 0;
+    max-width: 500px;
+    width: 90%;
+    max-height: 80vh;
+    overflow-y: auto;
+}
+
+.modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 20px;
+    border-bottom: 1px solid #47acff;
+    color: white;
+}
+
+.modal-header h3 {
+    margin: 0;
+    color: #47acff;
+}
+
+.close {
+    color: #aaa;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+    line-height: 1;
+}
+
+.close:hover,
+.close:focus {
+    color: white;
+}
+
+.modal-body {
+    padding: 20px;
+    color: white;
+}
+
+#best-line-info {
+    margin-bottom: 15px;
+    padding-bottom: 15px;
+    border-bottom: 1px solid #555;
+}
+
+#best-line-info p {
+    margin: 8px 0;
+}
+
+#best-line-moves {
+    font-family: monospace;
+    font-size: 16px;
+    line-height: 1.6;
+    background-color: rgba(71, 172, 255, 0.1);
+    padding: 15px;
+    border-radius: 4px;
+    border: 1px solid #47acff;
+}
+
+.best-move {
+    display: inline-block;
+    margin: 2px 4px;
+    padding: 4px 8px;
+    background-color: #47acff;
+    color: white;
+    border-radius: 3px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.best-move:hover {
+    background-color: #3a92d4;
+}
+
+/* Show Best Button */
+.show-best-btn {
+    background-color: #47acff;
+    color: white;
+    border: none;
+    padding: 8px 12px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 12px;
+    font-weight: bold;
+    transition: background-color 0.3s, opacity 0.3s;
+    margin: 0 4px;
+}
+
+.show-best-btn:hover:not(.disabled) {
+    background-color: #3a92d4;
+}
+
+.show-best-btn.disabled {
+    background-color: #666;
+    cursor: not-allowed;
+    opacity: 0.6;
+}
+
+/* Show Best Button States */
+#show-best-button {
+    cursor: pointer;
+    transition: opacity 0.3s, color 0.3s;
+}
+
+#show-best-button.disabled {
+    opacity: 0.4;
+    cursor: not-allowed;
+    color: #666 !important;
+}
+
+#show-best-button:not(.disabled):hover {
+    color: #47acff !important;
+}

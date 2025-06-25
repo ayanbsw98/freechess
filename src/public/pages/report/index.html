@@ -423,14 +423,20 @@
                             class="fa-solid fa-forward-step"
                             style="color: #ffffff"
                             data-tooltip="To the end"
-                        ></i>
-
-                        <i
+                        ></i>                        <i
                             id="save-analysis-button"
                             class="fa-solid fa-floppy-disk"
                             style="color: #ffffff"
                             data-tooltip="Save"
                         ></i>
+
+                        <button
+                            id="show-best-button"
+                            class="show-best-btn"
+                            data-tooltip="Show Best Line"
+                        >
+                            Show Best
+                        </button>
                     </div>
                     <div class="footer white privacyPolicyThingy">
                         A website by wintrcat
@@ -442,12 +448,29 @@
 
         <div id="game-select-menu-container"></div>
 
+        <!-- Best Line Modal -->
+        <div id="best-line-modal" class="modal" style="display: none;">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h3>Best Line</h3>
+                    <span class="close" id="close-best-line-modal">&times;</span>
+                </div>
+                <div class="modal-body">
+                    <div id="best-line-info">
+                        <p><strong>Evaluation:</strong> <span id="best-line-eval"></span></p>
+                        <p><strong>Depth:</strong> <span id="best-line-depth"></span></p>
+                    </div>
+                    <div id="best-line-moves"></div>
+                </div>
+            </div>
+        </div>
+
         <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
         <script src="/static/scripts/SpeechBubble.js"></script>
 
-        <script src="/static/pages/report/scripts/sprites.js"></script>
-        <script src="/static/pages/report/scripts/evalbar.js"></script>
+        <script src="/static/pages/report/scripts/sprites.js"></script>        <script src="/static/pages/report/scripts/evalbar.js"></script>
         <script src="/static/pages/report/scripts/evalgraph.js"></script>
+        <script src="/static/pages/report/scripts/show-best.js"></script>
         <script src="/static/pages/report/scripts/coach.js"></script>
         <script src="/static/pages/report/scripts/coach-ui.js"></script>
         <script src="/static/pages/report/scripts/board.js"></script>
